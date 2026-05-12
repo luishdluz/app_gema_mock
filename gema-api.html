@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="css/header_api.css">
+
+    <link rel="stylesheet" href="css/api.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <title>GEMA - API</title>
+</head>
+<body style="margin: 0;">
+
+    <header>
+      <div class="grupo-izquierdo">
+        <img src="imagenes/logoBM.svg" alt="Banco de Mexico" class="logo logo-desktop" />
+        <img src="imagenes/logoBM_movil.svg" alt="Banco de Mexico" class="logo logo-mobile" />
+
+        <div class="separador-logos"></div>
+
+        <img src="imagenes/GemaApi.svg" alt="GEMA" class="logo logo-desktop logoGema" />
+        <img src="imagenes/GEMA_movil.svg" alt="GEMA" class="logo logo-mobile" />
+      </div>
+
+      <div class="usuario">
+        <div class="botones-header botones">  
+
+          <div class="buscador-header">
+            <input type="text" placeholder="Buscar..." class="input-buscar">
+            <button class="btn-buscar">
+              <img src="imagenes/search.svg" alt="Buscar" width="18" height="18">
+            </button>
+          </div>          
+
+          <a href="index.html" data-tooltip="Regresar a inicio">
+            <img src="imagenes/home.svg" alt="Regresar a inicio" width="24" height="24">
+          </a>
+
+          <a href="#" data-tooltip="Cerrar sesión">
+            <img src="imagenes/salir.svg" alt="Cerrar sesión" width="24" height="24">
+          </a>
+
+        </div>
+        <div class="usuario-main">
+          <div class="info">
+            <div class="nombre-usuario">Luis Antonio Hernández De La Luz</div>
+            <div class="nombre-usuario">B16847 - 002001</div>
+          </div>
+          <img src="imagenes/b16847.png" alt="Usuario" class="foto-usuario">
+        </div>
+      </div>
+    </header>
+
+    <main class="layout-api">
+
+        <aside class="api-sidebar">
+            <div class="sidebar-header">
+                <span>Fuentes Disponibles</span>
+                <span class="count-badge" id="fuentes-count">0</span>
+            </div>
+
+            <div id="lista-fuentes-api" class="api-list"></div>
+        </aside>
+
+        <section class="api-detail" id="detalle-fuente-api">
+            <div class="empty-state">
+                <i class="material-icons-outlined">hub</i>
+                <h2>GEMA API</h2>
+                <p>Seleccione una fuente del panel izquierdo.</p>
+            </div>
+        </section>
+
+    </main>
+
+    
+
+
+
+
+    <script src="js/librerias/jquery-3.7.1.min.js"></script>
+    <script src="js/librerias/jquery-ui.min.js"></script>
+
+    <script src="js/datos_globales.js"></script>
+    <script src="js/api.js"></script>
+
+
+</body>
+</html>
+

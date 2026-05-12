@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="css/header.css">
+
+    <link rel="stylesheet" href="css/main-layout.css">
+
+    <link rel="stylesheet" href="css/fuentes.css">
+
+    <link rel="stylesheet" href="css/aplicaciones.css">
+
+    <link rel="stylesheet" href="css/metadatos.css">
+
+    <link rel="stylesheet" href="css/configuracion.css">
+
+    <link rel="stylesheet" href="css/diccionario.css">
+
+    <link rel="stylesheet" href="css/exposicion.css">
+
+    <link rel="stylesheet" href="css/extras.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <title>GEMA - BANXICO</title>
+</head>
+<body style="margin: 0;">
+
+    <header>
+      <div class="grupo-izquierdo">
+        <img src="imagenes/logoBM.svg" alt="Banco de Mexico" class="logo logo-desktop" />
+        <img src="imagenes/logoBM_movil.svg" alt="Banco de Mexico" class="logo logo-mobile" />
+
+        <div class="separador-logos"></div>
+
+        <img src="imagenes/gema.svg" alt="GEMA" class="logo logo-desktop logoGema" />
+        <img src="imagenes/GEMA_movil.svg" alt="GEMA" class="logo logo-mobile" />
+      </div>
+
+      <div class="usuario">
+        <div class="botones-header botones">  
+
+          <div class="buscador-header">
+            <input type="text" placeholder="Buscar..." class="input-buscar">
+            <button class="btn-buscar">
+              <img src="imagenes/search.svg" alt="Buscar" width="18" height="18">
+            </button>
+          </div>
+
+          <a href="gema-api.html" class="btn-api" data-tooltip="Ir a GEMA-API">
+            API
+          </a>
+
+          <a href="#" data-tooltip="Cerrar sesión">
+            <img src="imagenes/salir.svg" alt="Cerrar sesión" width="24" height="24">
+          </a>
+
+        </div>
+        <div class="usuario-main">
+          <div class="info">
+            <div class="nombre-usuario">Luis Antonio Hernández De La Luz</div>
+            <div class="nombre-usuario">B16847 - 002001</div>
+          </div>
+          <img src="imagenes/b16847.png" alt="Usuario" class="foto-usuario">
+        </div>
+      </div>
+    </header>
+
+    <div class="hamburger-menu" id="hamburger-btn">
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23ffffff'%3E%3Cpath d='M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z'/%3E%3C/svg%3E" alt="Menu">
+</div>
+
+<div class="main-wrapper">
+    <aside class="sidebar" id="sidebar">
+        <ul class="menu-list">
+            <li class="menu-item toggle-btn desktop-only" id="toggle-sidebar">
+                <div class="icon-wrapper">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'%3E%3Cpath d='M440-240 200-480l240-240 56 56-184 184 184 184-56 56Z'/%3E%3C/svg%3E" alt="Toggle">
+                </div>
+                <span class="menu-text">Contraer menú</span>
+            </li>
+
+            <li class="menu-item active" data-target="vista-fuentes">
+                <div class="icon-wrapper"><img src="imagenes/cards.svg" alt="Fuentes"></div>
+                <span class="menu-text">Fuentes de Datos</span>
+            </li>
+
+            <li class="menu-item" data-target="vista-apps">
+                <div class="icon-wrapper"><img src="imagenes/apps.svg" alt="Apps"></div>
+                <span class="menu-text">Aplicaciones</span>
+            </li>
+
+            <li class="menu-item" data-target="vista-metadatos">
+                <div class="icon-wrapper"><img src="imagenes/metadata.svg" alt="Metadatos"></div>
+                <span class="menu-text">Metadatos</span>
+            </li>
+
+            <!-- <li class="menu-item" data-target="vista-usuarios">
+                <div class="icon-wrapper"><img src="imagenes/permisosUsuarios.svg" alt="Usuarios"></div>
+                <span class="menu-text">Usuarios y Permisos</span>
+            </li> -->
+        </ul>
+    </aside>
+
+    <main class="content-area">
+        
+        <!-- Fuentes de datos -->
+<section id="vista-fuentes" class="view-section active">
+    <div class="view-header">
+        <h2>Catálogo de Fuentes de Datos</h2>
+        <button id="btn-nueva-fuente" class="btn-primario">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='20px' viewBox='0 -960 960 960' width='20px' fill='%23ffffff'%3E%3Cpath d='M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z'/%3E%3C/svg%3E" alt="Add">
+            Nueva Fuente
+        </button>
+    </div>
+
+    
+
+    <div class="cards-grid">
+        
+        <div class="card-fuente cat-general" data-id="F001">
+            <div class="card-content">
+                <span class="card-id">ID: F001</span>
+                <h3>Índice Nacional de Precios al Consumidor (INPC)</h3>
+                <p>Serie histórica del índice de precios y sus variaciones porcentuales mensuales y anuales.</p>
+            </div>
+            <div class="card-actions">
+                <button class="btn-mini btn-preview" title="Previsualizar"><img src="imagenes/ver.svg"></button>
+                <button class="btn-mini btn-config" title="Configurar"><img src="imagenes/settings.svg"></button>
+                <button class="btn-mini btn-del" title="Eliminar"><img src="imagenes/delete.svg"></button>
+            </div>
+        </div>
+
+        <div class="card-fuente cat-general" data-id="F002">
+            <div class="card-content">
+                <span class="card-id">ID: F002</span>
+                <h3>Tasas de Interés de Referencia (TIIE)</h3>
+                <p>Valores diarios de la Tasa de Interés Interbancaria de Equilibrio en distintos plazos.</p>
+            </div>
+            <div class="card-actions">
+                <button class="btn-mini btn-preview" title="Previsualizar"><img src="imagenes/ver.svg"></button>
+                <button class="btn-mini btn-config" title="Configurar"><img src="imagenes/settings.svg"></button>
+                <button class="btn-mini btn-del" title="Eliminar"><img src="imagenes/delete.svg"></button>
+            </div>
+        </div>
+
+        <div class="hierarchy-grid-wrapper">
+            <div class="card-fuente cat-limitado is-parent" data-id="F003">
+                <div class="card-content">
+                    <span class="card-id">ID: F003</span>
+                    <h3>Tablero de Tablero de Calificaciones en el Envío de Información del Sistema Financiero al Banco de México.</h3>
+                    <p>Indicadores detallados sobre la calidad, oportunidad y consistencia de la información reportada por las instituciones financieras.</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-mini btn-preview"><img src="imagenes/ver.svg"></button>
+                    <button class="btn-mini btn-config"><img src="imagenes/settings.svg"></button>
+                    <button class="btn-mini btn-del" title="Eliminar"><img src="imagenes/delete.svg"></button>
+                </div>
+            </div>
+            <div class="card-fuente cat-publico is-child" data-id="F004">
+                <div class="card-content">
+                    <span class="card-id">ID: F004</span>
+                    <h3>Tablero de Calificaciones en el Envío de Información del Sistema Financiero al Banco de México. (Público)</h3>
+                    <p>Vista pública simplificada y filtrada para transparencia en la calidad de la información financiera recibida por Banxico.</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-mini btn-preview"><img src="imagenes/ver.svg"></button>
+                    <button class="btn-mini btn-config"><img src="imagenes/settings.svg"></button>
+                    <button class="btn-mini btn-del" title="Eliminar"><img src="imagenes/delete.svg"></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+        
+
+        <!-- Apps -->
+        <section id="vista-apps" class="view-section">
+    <div class="view-header">
+        <h2>Gestión de Aplicaciones</h2>
+        <button class="btn-primario" id="btn-abrir-nueva-app">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'%3E%3Cpath d='M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z'/%3E%3C/svg%3E" alt="Add">
+            Nueva Aplicación
+        </button>
+    </div>
+
+    <div id="apps-grid" class="cards-grid">
+        </div>
+</section>
+
+
+
+        
+        <!-- Metadatos -->
+<section id="vista-metadatos" class="view-section">
+    <div class="view-header">
+        <div>
+            <h2>Esquema de Metadatos Obligatorios</h2>
+            <p style="color: #64748b; font-size: 0.85rem; margin-top: 5px;">Configure los campos que serán requeridos globalmente para toda fuente de datos.</p>
+        </div>
+        <div style="display: flex; gap: 10px;">
+            <button class="btn-primario" id="btn-nuevo-metadato">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'%3E%3Cpath d='M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z'/%3E%3C/svg%3E" alt="Add">
+                Agregar Campo
+            </button> </div>
+    </div>
+
+    <div class="table-container-modern">
+        <table class="datatable-gema">
+            <thead>
+                <tr>
+                    <th style="width: 200px;">Metadato</th>
+                    <th>Descripción (Tooltip)</th>
+                    <th>Tipo / Valores permitidos</th>
+                    <th style="width: 120px; text-align: center;">Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="metadata-table-body">
+                </tbody>
+        </table>
+    </div>
+</section>
+
+
+
+
+
+
+
+        <!-- Permisos generales -->    
+        <section id="vista-usuarios" class="view-section">
+            <h1>Usuarios y Permisos</h1>
+            <hr>
+            <p>Control de acceso por roles y nómina...</p>
+        </section>
+    </main>
+</div>
+
+<!-- Modal de previsualización -->
+<div id="modal-preview" class="modal-overlay">
+    <div class="modal-container">
+        <div class="modal-header">
+            <div class="header-content">
+                <div class="badge-preview">Muestra de datos</div>
+                <h3 id="modal-title">Nombre de la Fuente</h3>
+            </div>
+            <button class="btn-close-circle btn-close-modal" title="Cerrar vista">&times;</button>
+        </div>
+        
+        <div class="modal-body">
+            <div class="table-container-modern">
+                <table class="datatable-gema">
+                    <thead>
+                        <tr id="table-header">
+                            </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        </tbody>
+                </table>
+            </div>
+            <div class="modal-info-footer">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='16px' viewBox='0 -960 960 960' width='16px' fill='%2364748b'%3E%3Cpath d='M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z'/%3E%3C/svg%3E" alt="info">
+                Esta es una vista previa limitada para fines de verificación de estructura.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal eliminar fuente -->
+<div id="modal-eliminar" class="modal-overlay">
+    <div class="modal-confirm-container">
+        <div class="confirm-icon">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='40px' viewBox='0 -960 960 960' width='40px' fill='%23c21832'%3E%3Cpath d='M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z'/%3E%3C/svg%3E" alt="Eliminar">
+        </div>
+        <h3 id="confirm-title">¿Eliminar fuente de datos?</h3>
+        <p id="confirm-msg">Esta acción no se puede deshacer.</p>
+        
+        <div id="parent-warning" class="alert-danger-box" style="display: none;">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='20px' viewBox='0 -960 960 960' width='20px' fill='%23c21832'%3E%3Cpath d='M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z'/%3E%3C/svg%3E">
+            <span>Atención: Esta es una fuente principal. Al eliminarla, todas sus <b>subfuentes asociadas</b> también serán borradas.</span>
+        </div>
+
+        <div class="confirm-actions">
+            <button class="btn-cancelar" id="btn-cancel-del">Cancelar</button>
+            <button class="btn-confirmar-del" id="btn-confirm-del">Eliminar Definitivamente</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal para apps -->
+<div id="modal-app" class="modal-overlay">
+    <div class="modal-container modal-form-compact">
+        <div class="modal-header">
+            <div class="header-content">
+                <div class="badge-preview">Administración</div>
+                <h3>Registrar Aplicación</h3>
+                <p id="modal-subtitle">Vincule un nuevo sistema para el consumo de fuentes.</p>
+            </div>
+            <button class="btn-close-circle btn-close-modal">&times;</button>
+        </div>
+        
+        <div class="modal-body">
+            <form id="form-nueva-app" class="gema-form-modern">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="app-nombre">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='14px' viewBox='0 -960 960 960' width='14px' fill='%2364748b'%3E%3Cpath d='M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z'/%3E%3C/svg%3E">
+                            Nombre de la Aplicación
+                        </label>
+                        <input type="text" id="app-nombre" placeholder="Ej. Laboratorio de Datos" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="app-oficina">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='14px' viewBox='0 -960 960 960' width='14px' fill='%2364748b'%3E%3Cpath d='M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-32q0-34 17.5-62.5T224-296q62-31 126-47.5T480-360q66 0 130 16.5T736-296q29 15 46.5 43.5T800-192v32H160Z'/%3E%3C/svg%3E">
+                            Oficina Responsable
+                        </label>
+                        <input type="text" id="app-oficina" placeholder="Ej. Gerencia de Información" required>
+                    </div>
+                </div>
+
+                <div class="modal-form-actions">
+                    <button type="button" class="btn-minimal btn-close-modal">Cancelar</button>
+                    <button type="submit" class="btn-primario-small">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='18px' viewBox='0 -960 960 960' width='18px' fill='%23ffffff'%3E%3Cpath d='M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z'/%3E%3C/svg%3E">
+                        Guardar Aplicación
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- Metadatos -->
+<div id="modal-metadata" class="modal-overlay">
+    <div class="modal-container modal-form-compact">
+        <div class="modal-header">
+            <div class="header-content">
+                <div class="badge-preview">Configuración de Campo</div>
+                <h3 id="meta-modal-title">Nuevo Metadato</h3>
+            </div>
+            <button class="btn-close-circle btn-close-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form id="form-metadata" class="gema-form-modern">
+                <div class="form-group">
+                    <label>Nombre del Metadato</label>
+                    <input type="text" id="meta-nombre" placeholder="Ej. Responsable Técnico" required>
+                </div>
+                <div class="form-group">
+                    <label>Descripción (Instrucciones para el usuario)</label>
+                    <textarea id="meta-descripcion" placeholder="Explique qué debe capturar el usuario..." rows="3" class="gema-input"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Tipo de Entrada</label>
+                    <select id="meta-tipo" class="gema-input">
+                        <option value="texto">Texto Libre</option>
+                        <option value="select">Lista de opciones (Selección)</option>
+                    </select>
+                </div>
+
+                <div id="section-valores-fijos" style="display: none; border-top: 1px dashed #e2e8f0; pt: 15px;">
+                    <label style="font-size: 0.75rem; font-weight: 700; color: #64748b; display: block; mb: 10px;">VALORES PERMITIDOS</label>
+                    <div id="lista-valores-config" style="display: flex; flex-wrap: wrap; gap: 8px; mb: 10px;"></div>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" id="input-nuevo-valor" placeholder="Agregar opción..." style="flex-grow: 1;">
+                        <button type="button" id="btn-add-valor" class="btn-mini" style="height: 38px; width: 38px;">+</button>
+                    </div>
+                </div>
+
+                <div class="modal-form-actions">
+                    <button type="button" class="btn-minimal btn-close-modal">Cancelar</button>
+                    <button type="submit" class="btn-primario-small">Guardar Campo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Configuración de fuente --> 
+<div id="modal-configuracion" class="modal-overlay">
+    <div class="modal-container modal-large">
+        <div class="modal-header">
+            <div class="header-content">
+                <div class="badge-preview">Panel de Control</div>
+                <h3 id="config-fuente-titulo">Configurar Fuente</h3>
+                <p id="config-fuente-id" style="color: #64748b; font-size: 0.85rem;"></p>
+            </div>
+            <button class="btn-close-circle btn-close-config">&times;</button>
+        </div>
+
+        <div class="tabs-wrapper">
+            <div class="tabs-header">
+                <button class="tab-btn active" data-tab="tab-metadatos">
+                   Metadatos
+                </button>
+                <button class="tab-btn" data-tab="tab-diccionario">
+                     Diccionario
+                </button>
+                <button class="tab-btn" data-tab="tab-exposicion">
+                    Exposición
+                </button>
+                <button class="tab-btn" data-tab="tab-documentacion">Documentación</button>
+            </div>
+
+            <div class="tabs-content">
+                <div id="tab-metadatos" class="tab-pane active">
+                    <form id="form-config-metadatos" class="gema-form-modern" style="margin: 0;">
+                        <div class="metadata-section">
+                            <h4 class="section-title">Metadatos Obligatorios</h4>
+                            <div id="contenedor-metadatos-obligatorios" class="fields-grid">
+                                </div>
+                        </div>
+
+                        <div class="metadata-section" style="border-top: 1px solid #f1f5f9; pt: 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; mb: 15px;">
+                                <h4 class="section-title">Metadatos Adicionales (Opcionales)</h4>                                
+                            </div>
+                            <div id="contenedor-metadatos-opcionales" class="fields-grid">
+                                </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="tab-diccionario" class="tab-pane">
+    <div class="diccionario-controls" style="margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+            <h4 class="section-title-premium" style="border: none; margin: 0;">Estructura de Campos</h4>
+            <p style="color: #64748b; font-size: 0.8rem;">Defina los atributos técnicos y descripciones funcionales de la fuente.</p>
+        </div>
+        <button type="button" class="btn-secundario" id="btn-sync-db" style="display: flex; align-items: center; gap: 8px;">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='18px' viewBox='0 -960 960 960' width='18px' fill='%23007279'%3E%3Cpath d='M480-160q-134 0-227-93t-93-227q0-134 93-227t227-93q69 0 132 28.5T720-690v-70h80v200H600v-80h115q-45-44-103.5-67T480-720q-100 0-170 70t-70 170q0 100 70 170t170 70q77 0 139-44t87-116h84q-28 106-114 173t-196 67Z'/%3E%3C/svg%3E">
+            Obtener estructura de BD
+        </button>
+    </div>
+
+    <div id="contenedor-diccionario" class="metadata-grid">
+        </div>
+</div>
+
+                
+            <!-- Exposicion -->
+               <div id="tab-exposicion" class="tab-pane">
+    <div id="lista-grupos-exposicion">
+        <div class="diccionario-controls">
+            <div>
+                <h4 class="section-title-premium" style="border:none; margin:0;">Grupos de Exposición</h4>
+                <p style="color: #64748b; font-size: 0.8rem;">Gestione quiénes y a través de qué apps acceden a esta fuente.</p>
+            </div>
+        </div>
+        <div id="contenedor-grupos-grid" class="metadata-grid">
+            </div>
+    </div>
+
+<div id="editor-grupo-exposicion" class="hidden">
+    <div class="editor-header">
+        <button class="btn-back" id="btn-back-to-groups">
+            <i class="material-icons-outlined">arrow_back</i>
+            <span>Volver a la lista</span>
+        </button>
+
+        <div class="header-info">
+            <h3 id="titulo-editor-grupo">Configuración de Acceso</h3>
+            <div class="badge-id" id="exp-grupo-id-label">ID: NUEVO_GRUPO</div>
+        </div>
+
+        <button class="btn-save-group-premium" id="btn-save-group">            
+            Guardar Cambios
+        </button>
+    </div>
+
+    <div class="editor-layout">
+        <div class="editor-sidebar">
+            <div class="gema-card-premium">
+                <div class="editor-section-title">📦 General</div>
+                <input type="text" id="exp-grupo-nombre" class="gema-input-card" placeholder="Nombre del grupo..." style="margin-bottom:10px;">
+                <textarea id="exp-grupo-desc" class="gema-input-card" placeholder="Descripción funcional para el tooltip..." rows="3"></textarea>
+            </div>
+
+            <div class="gema-card-premium">
+                <div class="editor-section-title">👥 Audiencia</div>
+                <div class="autocomplete-container">
+                    <input type="text" id="search-users" class="gema-input-card" placeholder="Buscar usuarios/grupos...">
+                    <div id="user-results" class="search-results hidden"></div>
+                </div>
+                <div id="selected-users-tags" class="tags-container"></div>
+            </div>
+
+            <div class="gema-card-premium">
+                <div class="editor-section-title">📱 Aplicaciones</div>
+                <div id="exp-apps-list" class="apps-tile-grid">
+                    </div>
+            </div>
+        </div>
+
+        <div class="editor-main">
+            <div class="gema-card-premium">
+                <div class="editor-section-title">🔍 Visibilidad de Campos</div>
+                <p style="font-size: 12px; color: #64748b; margin-bottom: 15px;">Seleccione los campos del diccionario que este grupo podrá visualizar.</p>
+                
+                <div class="dual-list-wrapper">
+                    <div class="dual-list-column">
+                        <div class="column-header">CAMPOS DISPONIBLES</div>
+                        <ul id="list-available" class="field-list"></ul>
+                    </div>
+                    <div class="dual-list-controls">
+                        <button class="btn-control" id="move-all-right">≫</button>
+                        <button class="btn-control" id="move-all-left">≪</button>
+                    </div>
+                    <div class="dual-list-column">
+                        <div class="column-header">CAMPOS VISIBLES</div>
+                        <ul id="list-visible" class="field-list"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gema-card-premium">
+                <div class="editor-section-title">🛠 Filtros Establecidos</div>
+                <div id="filter-rows-container">
+                    </div>
+                <button type="button" class="btn-add-filter" id="btn-add-exp-filter">+ Añadir regla de filtrado</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div id="tab-documentacion" class="tab-pane">
+    <div class="editor-layout" style="grid-template-columns: 1fr 1fr;">
+        <div class="editor-col">
+            <div class="gema-card-premium">
+                <div class="editor-section-title">
+                    <i class="material-icons-outlined">description</i>
+                    Notas
+                </div>
+                <p style="font-size: 12px; color: #64748b; margin-bottom: 15px;">
+                    Escriba aquí detalles técnicos, reglas de negocio o aclaraciones que no están en los metadatos.
+                </p>
+                <textarea id="doc-notas-ia" class="gema-input-card" style="height: 400px; resize: none; line-height: 1.6;" 
+                    placeholder="Ejemplo: Esta fuente se actualiza cada martes después del cierre de mercados. Los valores negativos en la columna 'AJUSTE' representan devoluciones..."></textarea>
+            </div>
+        </div>
+
+        <div class="editor-col">
+            <div class="gema-card-premium">
+    <div class="editor-section-title">
+        <i class="material-icons-outlined">upload_file</i>
+        Archivos de Soporte
+    </div>
+    
+    <div id="drop-zone-doc" class="btn-add-filter" style="height: 120px; flex-direction: column; border-style: dashed; cursor: pointer;">
+        <i class="material-icons-outlined" style="font-size: 32px; margin-bottom: 10px;">cloud_upload</i>
+        <span>Arrastre archivos aquí o haga clic para subir</span>
+    </div>
+    
+    <input type="file" id="input-file-doc" style="display:none;" multiple>
+
+    <div id="lista-archivos-doc" style="margin-top: 20px; display: grid; gap: 10px;"></div>
+</div>
+        </div>
+    </div>
+</div>
+
+
+
+
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn-minimal btn-close-config">Cancelar</button>
+            <button type="button" class="btn-primario-small" id="btn-guardar-config">
+                Guardar Cambios
+            </button>
+        </div>
+    </div>
+</div>
+
+    <script src="js/librerias/jquery-3.7.1.min.js"></script>
+    <script src="js/librerias/jquery-ui.min.js"></script>
+
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/fuentes.js"></script>
+    <script src="js/previsualizacion.js"></script>
+    <script src="js/eliminar.js"></script>
+    <script src="js/aplicaciones.js"></script>
+    <script src="js/metadatos.js"></script>
+    <script src="js/configuracion.js"></script>
+    <script src="js/exposicion.js"></script>
+    <script src="js/documentacion.js"></script>
+
+</body>
+</html>
+
