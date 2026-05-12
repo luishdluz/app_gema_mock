@@ -1,0 +1,222 @@
+/* =============================
+   ESTRUCTURA PRINCIPAL
+============================= */
+.main-wrapper {
+    display: flex;
+    margin-top: 80px; /* Ajustar según alto de header desktop */
+    height: calc(100vh - 80px);
+    width: 100%;
+    overflow: hidden;
+}
+
+/* =============================
+   SIDEBAR
+============================= */
+.sidebar {
+    width: 260px;
+    /* Fondo solicitado en oklch */
+    background-color: #FAFAFA;
+    height: 100%;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-right: 1px solid rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.sidebar.collapsed {
+    width: 70px;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 0 23px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #545454; 
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.menu-item:hover {
+    background-color: oklch(92.8% .006 264.531);
+    color: oklch(21% .034 264.665);
+}
+
+/* Estado Activo */
+.menu-item.active {
+    background-color: #04b3bb;
+    color: white;
+}
+
+/* =============================
+   ICONOS (Filtros y Rotación)
+============================= */
+.icon-wrapper {
+    min-width: 24px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-wrapper img {
+    width: 20px;
+    height: 20px;
+    /* Gris oscuro por defecto mediante filtro */
+    filter: brightness(0) saturate(100%) invert(35%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(85%);
+    transition: filter 0.3s ease, transform 0.4s ease;
+}
+
+/* Iconos blancos cuando el item está activo */
+.menu-item.active .icon-wrapper img {
+    filter: brightness(0) invert(1);
+}
+
+/* Rotación de la flecha de Toggle */
+/* Asumiendo que tu flecha apunta a la IZQUIERDA (<) por defecto para contraer */
+.sidebar.collapsed .toggle-btn img {
+    transform: rotate(180deg);
+}
+
+.menu-text {
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: opacity 0.2s;
+}
+
+.sidebar.collapsed .menu-text {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* =============================
+   CONTENIDO
+============================= */
+.content-area {
+    flex-grow: 1;
+    overflow-y: auto;
+    background-color: #fafafa;
+}
+
+/* =============================
+   RESPONSIVO
+============================= */
+@media (max-width: 1126px) {
+    .main-wrapper {
+        margin-top: 65px;
+        height: calc(100vh - 65px);
+    }
+    
+    .sidebar { width: 70px; }
+    
+    /* En móvil, si se expande, flota sobre el contenido */
+    .sidebar.expanded {
+        width: 260px;
+        position: absolute;
+        z-index: 1000;
+        box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+    }
+}
+
+
+/* =============================
+   BOTÓN HAMBURGUESA (Móvil)
+============================= */
+.hamburger-menu {
+    display: none; /* Oculto en desktop */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+    background-color: #007279;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+/* =============================
+   SISTEMA DE VISTAS (Contenido)
+============================= */
+.view-section {
+    display: none; /* Oculto por defecto */
+    animation: fadeIn 0.3s ease;
+}
+
+.view-section.active {
+    display: block; /* Solo se muestra la activa */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =============================
+   RESPONSIVO MÓVIL
+============================= */
+@media (max-width: 1126px) {
+    .main-wrapper {
+        margin-top: 65px;
+        height: calc(100vh - 65px);
+    }
+
+    .hamburger-menu {
+        display: flex; /* Mostrar en móvil */
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 65px;
+        left: -100%; /* Fuera de pantalla por defecto */
+        width: 100%; /* Ocupa todo el ancho */
+        height: calc(100vh - 65px);
+        z-index: 1500;
+        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: #FAFAFA;
+    }
+
+    .sidebar.mobile-open {
+        left: 0; /* Entra a pantalla completa */
+    }
+
+    .content-area {
+        width: 100%; /* Siempre ocupa todo el ancho */
+        padding: 20px;
+    }
+
+    .desktop-only {
+        display: none !important;
+    }
+
+    .menu-item {
+        height: 70px; /* Más grande para touch */
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .menu-text {
+        opacity: 1 !important; /* Siempre visible en móvil */
+        font-size: 1.1rem;
+    }
+}
+
+.no-results-container {
+    grid-column: 1 / -1; /* Hace que el div ocupe todas las columnas del grid */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}

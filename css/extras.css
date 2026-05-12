@@ -1,0 +1,42 @@
+.file-card-doc {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    gap: 12px;
+    transition: all 0.2s;
+}
+
+.file-card-doc:hover {
+    border-color: #007279;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.file-card-doc .file-icon {
+    width: 40px;
+    height: 40px;
+    background: #f0f9fa;
+    color: #007279;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.file-card-doc .file-info {
+    flex: 1;
+}
+
+.file-card-doc .file-name {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.file-card-doc .file-size {
+    font-size: 11px;
+    color: #94a3b8;
+}

@@ -1,0 +1,497 @@
+/* --- LAYOUT DEL EDITOR --- */
+.editor-layout {
+    display: grid;
+    grid-template-columns: 350px 1fr; /* Columna fija para info, fluida para reglas */
+    gap: 25px;
+    margin-top: 25px;
+    align-items: start;
+}
+
+.editor-section-title {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #1e293b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.editor-section-title i { color: #007279; }
+
+/* --- CARDS PREMIUM --- */
+.gema-card-premium {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+/* --- DUAL LIST MODERNIZADO --- */
+.dual-list-wrapper {
+    display: flex;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 350px;
+}
+
+.dual-list-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.column-header {
+    background: #f1f5f9;
+    padding: 10px 15px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #475569;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.field-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    background: #fff;
+}
+
+.field-list li {
+    padding: 12px 15px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 13px;
+    color: #334155;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.field-list li:hover { background: #f0f9fa; color: #007279; }
+
+.dual-list-controls {
+    width: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background: #fff;
+    border-left: 1px solid #e2e8f0;
+    border-right: 1px solid #e2e8f0;
+}
+
+.btn-control {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid #cbd5e1;
+    background: #fff;
+    color: #64748b;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-control:hover { background: #007279; color: #fff; border-color: #007279; }
+
+/* --- APPS GRID (Iconos en lugar de lista) --- */
+.apps-tile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+}
+
+.app-tile {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.app-tile input { display: none; }
+.app-tile i { display: block; font-size: 1.5rem; margin-bottom: 5px; color: #94a3b8; }
+.app-tile span { font-size: 10px; font-weight: 600; color: #64748b; }
+
+.app-tile.selected {
+    background: #e6f4f4;
+    border-color: #007279;
+}
+.app-tile.selected i, .app-tile.selected span { color: #007279; }
+
+/* --- QUERY BUILDER (Filtros) --- */
+.filter-builder-row {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 1.2fr 40px;
+    gap: 10px;
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+/* --- HEADER DEL EDITOR REDISEÑADO --- */
+.editor-header {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #e2e8f0;
+    gap: 20px;
+}
+
+/* Botón Volver con Estilo Moderno */
+.btn-back {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    color: #475569;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-back:hover {
+    background: #fff;
+    border-color: #007279;
+    color: #007279;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transform: translateX(-3px); /* Efecto de retroceso */
+}
+
+/* Info del Título */
+.header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.header-info h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.5px;
+}
+
+/* Badge del ID tipo Token */
+.badge-id {
+    display: inline-flex;
+    align-items: center;
+    background: #f1f5f9;
+    color: #64748b;
+    padding: 2px 10px;
+    border-radius: 6px;
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    border: 1px solid #e2e8f0;
+    width: fit-content;
+}
+
+/* Botón Guardar Premium */
+.btn-save-group-premium {
+    margin-left: auto;
+    background: #007279;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(0, 114, 121, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-save-group-premium:hover {
+    background: #005a60;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 114, 121, 0.3);
+}
+
+.btn-save-group-premium:active {
+    transform: translateY(0);
+}
+
+.btn-save-group-premium i {
+    font-size: 18px;
+}
+
+/* --- DISEÑO DE TAGS DE USUARIO PREMIUM --- */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+    min-height: 40px;
+    padding: 10px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px dashed #cbd5e1;
+}
+
+.tag-user {
+    display: inline-flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #007279;
+    color: #007279;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    gap: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: all 0.2s ease;
+    animation: fadeInTag 0.3s ease-out;
+}
+
+.tag-user:hover {
+    background: #f0f9fa;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Icono dentro del tag */
+.tag-user i {
+    font-size: 16px;
+    color: #007279;
+}
+
+/* Botón de eliminación del tag */
+.rm-tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background: #e2e8f0;
+    color: #64748b;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1;
+    transition: all 0.2s ease;
+}
+
+.rm-tag:hover {
+    background: #ef4444; /* Rojo al borrar */
+    color: white;
+    transform: rotate(90deg);
+}
+
+@keyframes fadeInTag {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* --- REDISEÑO DEL AUTOCOMPLETE DE BÚSQUEDA --- */
+
+.autocomplete-container {
+    position: relative;
+    width: 100%;
+}
+
+/* El contenedor de los resultados */
+.search-results {
+    position: absolute;
+    top: calc(100% + 8px); /* Separación elegante del input */
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    z-index: 1000;
+    max-height: 280px;
+    overflow-y: auto;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 
+                0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    padding: 6px;
+    animation: quickSlideIn 0.2s ease-out;
+}
+
+/* Cada ítem de sugerencia */
+.user-suggestion-item {
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #334155;
+    border-radius: 8px; /* Bordes redondeados en el hover */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s ease;
+    margin-bottom: 2px;
+}
+
+/* Efecto Hover: Cambio de color y sutil desplazamiento */
+.user-suggestion-item:hover {
+    background-color: #f0f9fa;
+    color: #007279;
+    padding-left: 18px; /* Efecto de empuje */
+}
+
+/* Icono decorativo mediante CSS (asumiendo que no hay iconos en el texto del MOCK) */
+.user-suggestion-item::before {
+    content: 'search'; /* Icono de lupa por defecto */
+    font-family: 'Material Icons Outlined';
+    font-size: 18px;
+    color: #94a3b8;
+}
+
+.user-suggestion-item:hover::before {
+    color: #007279;
+    content: 'person_add'; /* Cambia el icono al pasar el mouse */
+}
+
+/* Estilo para el scrollbar dentro de los resultados */
+.search-results::-webkit-scrollbar {
+    width: 6px;
+}
+.search-results::-webkit-scrollbar-track {
+    background: transparent;
+}
+.search-results::-webkit-scrollbar-thumb {
+    background: #e2e8f0;
+    border-radius: 10px;
+}
+.search-results::-webkit-scrollbar-thumb:hover {
+    background: #cbd5e1;
+}
+
+/* Animación de entrada */
+@keyframes quickSlideIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(-10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* --- MEJORA DEL INPUT CUANDO TIENE RESULTADOS --- */
+#search-users:focus {
+    border-color: #007279;
+    box-shadow: 0 0 0 3px rgba(0, 114, 121, 0.1);
+}
+
+/* Mensaje de "No resultados" o estado vacío si fuera necesario */
+.search-results:empty::after {
+    content: 'No se encontraron coincidencias';
+    display: block;
+    padding: 15px;
+    color: #94a3b8;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* --- BOTÓN AGREGAR FILTRO (ESTILO ACTION-ZONE) --- */
+.btn-add-filter {
+    background: #ffffff;
+    border: 2px dashed #cbd5e1; /* Borde discontinuo para indicar 'zona de agregar' */
+    color: #64748b;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-add-filter::before {
+    content: 'add_circle_outline'; /* Icono de Material Icons */
+    font-family: 'Material Icons Outlined';
+    font-size: 20px;
+}
+
+.btn-add-filter:hover {
+    background: #f0f9fa;
+    border-color: #007279;
+    color: #007279;
+    box-shadow: 0 4px 12px rgba(0, 114, 121, 0.08);
+    transform: translateY(-2px);
+}
+
+/* --- BOTÓN ELIMINAR FILTRO (ESTILO GHOST DANGER) --- */
+.btn-remove-filter {
+    background: transparent;
+    border: none;
+    color: #94a3b8; /* Gris tenue por defecto */
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.btn-remove-filter:hover {
+    background: #fee2e2; /* Fondo rojo muy suave */
+    color: #ef4444;      /* Icono rojo vibrante */
+    transform: rotate(8deg); /* Pequeña inclinación juguetona */
+}
+
+/* Mejora de la fila para que los botones luzcan mejor */
+.filter-builder-row {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 1fr 0.6fr 1fr 40px;
+    gap: 12px;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.filter-builder-row:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+/* --- ESTILO DE LOS SELECTS E INPUTS DENTRO DE FILTROS --- */
+.filter-builder-row .gema-input-card {
+    height: 38px; /* Altura uniforme para todos */
+    font-size: 13px;
+    border: 1px solid #e2e8f0;
+    background: #fcfcfc;
+}
+
+.filter-builder-row .gema-input-card:focus {
+    background: #ffffff;
+    border-color: #007279;
+}

@@ -1,0 +1,604 @@
+* {
+    max-width: 100%;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-image: url(../imagenes/cabeceraBM.jpg);
+    background-repeat: no-repeat;
+    background-position: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px; /* Aumentado un poco para mejor respiro */
+    padding-right: 0;
+    box-sizing: border-box;
+    z-index: 100;
+    background-color: #080611;
+    background-size: cover;
+}
+
+/* =============================
+   LOGO DEL BANCO Y APP
+============================= */
+.grupo-izquierdo {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espacio uniforme entre logos y línea */
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Separador Vertical */
+.separador-logos {
+    width: 1px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.8); /* Blanco con ligera transparencia */
+}
+
+/* Lógica de visibilidad para responsivo */
+.logo-mobile {
+    display: none;
+}
+
+/* =============================
+   CONTENEDOR DEL USUARIO
+============================= */
+.usuario {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+    margin-right: 0;
+}
+
+.usuario-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #172542;
+    height: 100%;
+    padding-left: 20px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.usuario-main .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 15px;
+    text-align: left;
+}
+
+.nombre-usuario {
+    font-size: 14px; /* Un poco más pequeño para evitar overflow */
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+}
+
+/* =============================
+   FOTO DE USUARIO
+============================= */
+.foto-usuario {
+    height: 100%;
+    width: auto;
+    border-radius: 50% 0 0 50%;  
+    object-fit: cover;
+    display: block;
+    border-left: 3px solid #62DDFC;
+}
+
+/* =============================
+   BOTONES DE ACCION
+============================= */
+.botones-header {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+header .botones a {
+    background: #007279;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    min-height: 32px;
+    padding: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+header .botones a:hover {
+    background: #1B2A4A;    
+}
+
+.logoGema{
+    height: 90px;
+}
+
+/* =============================
+   RESPONSIVO – MOVIL
+============================= */
+@media (max-width: 1126px) {
+    header {
+        height: 65px;
+        background-size: cover;
+    }
+
+    /* Intercambio de logos */
+    .logo-desktop {
+        display: none;
+    }
+    
+    .logo-mobile {
+        display: block;
+        height: 35px; /* Más pequeño para móviles */
+    }
+
+    .separador-logos {
+        height: 25px; /* Ajuste de altura del separador */
+    }
+
+    .grupo-izquierdo {
+        gap: 5px;
+    }
+
+    .usuario-main .info {
+        display: none; /* Oculta texto de usuario en móvil */
+    }
+
+    .usuario-main {
+        background: transparent;
+        padding-left: 0;
+    }
+
+    .foto-usuario {
+        border-left: none; /* Limpieza visual en móvil */
+    }
+}
+
+
+/* =============================
+   BUSCADOR CONFIGURACIÓN (Efecto Blanco/Verde)
+============================= */
+.buscador-header {
+    display: flex;
+    align-items: center;
+    background: #007279; 
+    border-radius: 6px;
+    height: 40px; 
+    transition: all 0.3s ease;
+    overflow: hidden;
+    margin-right: 5px;
+    box-sizing: border-box;
+    border: 2px solid transparent; 
+}
+
+/* Botón de la lupa */
+.btn-buscar {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 40px; 
+    height: 40px;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+/* Icono Lupa */
+.btn-buscar img {
+    width: 20px;
+    height: 20px;
+    display: block;
+    transition: filter 0.3s ease;
+}
+
+/* Input de texto */
+.input-buscar {
+    width: 0px;
+    height: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+    transition: width 0.4s ease, padding 0.4s ease;
+    padding: 0;
+    color: #007279; 
+}
+
+/* Placeholder inicial (mientras está cerrado/verde) */
+.input-buscar::placeholder {
+    color: rgba(0, 114, 121, 0.7);
+}
+
+/* =============================
+   ESTADO EXPANDIDO (FOCUS)
+============================= */
+.buscador-header:focus-within {
+    width: 250px; 
+    background: #ffffff; 
+    border: 2px solid #007279; 
+}
+
+.buscador-header:focus-within .input-buscar {
+    width: 200px;
+    padding-left: 12px;
+    color: #04b3bb; 
+}
+
+
+.buscador-header:focus-within .btn-buscar img {
+    filter: invert(53%) sepia(93%) saturate(1634%) hue-rotate(145deg) brightness(96%) contrast(101%);
+}
+
+/* =============================
+   BOTÓN API ESPECÍFICO
+============================= */
+header .botones .btn-api {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0 15px; 
+    height: 40px; 
+    min-width: 60px;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+header .botones .btn-api:hover {
+    background: #1B2A4A;
+}
+
+/* =============================
+   ESTILO BASE PARA TODOS LOS BOTONES
+============================= */
+header .botones a, .buscador-header {
+    width: 65px; 
+    height: 40px; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background: #007279;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    text-decoration: none;
+    margin: 0;
+}
+
+/* Hover general para los botones simples */
+header .botones a:hover {
+    background: #1B2A4A;
+}
+
+/* =============================
+   BOTÓN API (Específico)
+============================= */
+.btn-api {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* =============================
+   BUSCADOR (Ajuste de ancho base)
+============================= */
+.buscador-header {
+    margin-right: 0; 
+    padding: 0;
+    border: 2px solid transparent;
+}
+
+.btn-buscar {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%; 
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.input-buscar {
+    width: 0px;
+    height: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    transition: width 0.4s ease;
+    padding: 0;
+}
+
+/* ESTADO EXPANDIDO DEL BUSCADOR */
+.buscador-header:focus-within {
+    width: 250px; 
+    background: #ffffff;
+    border: 2px solid #007279;
+    justify-content: flex-start;
+}
+
+.buscador-header:focus-within .btn-buscar {
+    width: 40px; 
+}
+
+.buscador-header:focus-within .input-buscar {
+    width: 200px;
+    padding-left: 10px;
+    color: #007279;
+}
+
+/* =============================
+   CONTENEDOR DE BOTONES (GAP)
+============================= */
+.botones-header {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    margin-right: 20px;
+}
+
+/* =============================
+   RESPONSIVO – AJUSTES GENERALES
+============================= */
+@media (max-width: 1126px) {
+    header {
+        height: 65px;
+        padding-left: 10px;
+    }
+
+    /* Ocultar elementos secundarios en móvil para dar espacio */
+    .hide-on-mobile {
+        display: none !important;
+    }
+
+    .logo-desktop { display: none; }
+    .logo-mobile { display: block; height: 30px; }
+    .separador-logos { height: 20px; gap: 8px; }
+
+    /* Ajuste de los botones para que no choquen */
+    .botones-header {
+        gap: 5px;
+        margin-right: 10px;
+    }
+
+    /* Tamaño de los botones en móvil */
+    header .botones a, .buscador-header {
+        width: 45px; /* Más compactos en móvil */
+        height: 35px;
+    }
+    
+    .btn-buscar { height: 35px; }
+}
+
+/* =============================
+   EFECTO "FULL SEARCH" EN MÓVIL
+   Cuando el buscador tiene el foco en pantallas pequeñas
+============================= */
+@media (max-width: 768px) {
+    /* 1. Si el buscador está activo, ocultamos los logos */
+    header:has(.buscador-header:focus-within) .grupo-izquierdo {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    /* 2. El buscador se expande sobre el espacio de los logos */
+    .buscador-header:focus-within {
+        position: absolute;
+        left: 10px;
+        /* Calculamos el ancho: 100% menos el espacio de la foto de usuario y el botón salir */
+        width: calc(100% - 120px) !important; 
+        z-index: 101;
+        background: white;
+    }
+
+    .buscador-header:focus-within .input-buscar {
+        width: 100%;
+        padding-left: 15px;
+    }
+    
+    .buscador-header:focus-within .btn-buscar {
+        width: 40px;
+    }
+
+    /* 3. Aseguramos que la foto del usuario y salir no se muevan */
+    .usuario {
+        z-index: 102;
+    }
+}
+
+/* Transición suave para los logos */
+.grupo-izquierdo {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+@media (max-width: 1126px) {
+    header {
+        height: 65px;
+    }
+
+    /* 1. Logos: Solo se ocultan si el buscador está activo */
+    header:has(.buscador-header:focus-within) .grupo-izquierdo {
+        max-width: 0;
+        opacity: 0;
+        margin: 0;
+        padding: 0;
+        gap: 0;
+    }
+
+    /* 2. Unificamos el alto de TODOS los botones de acción */
+    /* Usamos height y min-height para forzar el tamaño */
+    header .botones a, 
+    .buscador-header,
+    .btn-api,
+    .btn-buscar {
+        height: 40px !important; /* Mismo alto que en desktop para consistencia */
+        min-height: 40px !important;
+        max-height: 40px !important;
+        box-sizing: border-box !important;
+        padding: 0 !important; /* Quitamos padding que pueda descuadrar */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* 3. Ajustes específicos de ancho en móvil */
+    header .botones a, .buscador-header {
+        width: 50px;
+    }
+
+    .btn-api {
+        width: 60px !important; /* Un poco más ancho para que quepa la palabra API */
+        font-size: 13px;
+        line-height: 1; /* Evita que el texto empuje el alto del botón */
+    }
+
+    .buscador-header:focus-within {
+        width: calc(100vw - 195px) !important;
+    }
+
+    /* Ajuste de iconos para que se vean centrados en los 40px */
+    header .botones a img, 
+    .btn-buscar img {
+        width: 22px;
+        height: 22px;
+    }
+
+    .logo-desktop { display: none; }
+    .logo-mobile { display: block; height: 35px; }
+}
+
+@media (max-width: 1126px) {
+    header {
+        height: 65px;
+        /* Quitamos la imagen y ponemos el color solicitado */
+        background-image: none !important; 
+        background-color: #172542 !important;
+        padding-left: 10px;
+    }
+
+    /* 1. OCULTAR TODO AL EXPANDIR EL BUSCADOR */
+    /* Logos, botón API y botón Salir se encogen y desaparecen */
+    header:has(.buscador-header:focus-within) .grupo-izquierdo,
+    header:has(.buscador-header:focus-within) .btn-api,
+    header:has(.buscador-header:focus-within) .botones-header > a {
+        max-width: 0;
+        opacity: 0;
+        margin: 0;
+        padding: 0;
+        gap: 0;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    /* 2. EL BUSCADOR TOMA TODO EL ANCHO */
+    /* Dejamos solo un pequeño margen para la foto de usuario */
+    .buscador-header:focus-within {
+        width: calc(100vw - 75px) !important; 
+        background: #ffffff;
+        border: 2px solid #007279;
+        margin-left: 5px;
+    }
+
+    /* 3. UNIFICACIÓN DE ALTURAS (Todos a 40px) */
+    header .botones a, 
+    .buscador-header,
+    .btn-api,
+    .btn-buscar {
+        height: 40px !important;
+        min-height: 40px !important;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    /* Anchos base cuando el buscador está cerrado */
+    header .botones a, .buscador-header {
+        width: 50px;
+    }
+
+    .btn-api {
+        width: 60px !important;
+        font-size: 13px;
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .botones-header {
+        gap: 8px;
+        margin-right: 15px;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    /* Ajuste de logos móviles */
+    .logo-desktop { display: none; }
+    .logo-mobile { display: block; height: 35px; }
+}
+
+/* Transición global para que los elementos se oculten suavemente */
+.btn-api, 
+.botones-header > a,
+.grupo-izquierdo,
+.buscador-header {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 1126px) {
+    header {
+        height: 65px;
+        background-image: none !important; 
+        background-color: #172542 !important;
+        padding-left: 10px;
+    }
+
+    /* ... (mantener las reglas de ocultar logos y botones al expandir buscador) ... */
+
+    /* =============================
+       FOTO DE USUARIO (Restaurar Borde)
+    ============================= */
+    .foto-usuario {
+        /* Forzamos que aparezca el borde azul */
+        border-left: 3px solid #62DDFC !important; 
+        height: 100% !important;
+        /* Mantenemos la forma de media luna */
+        border-radius: 50% 0 0 50% !important; 
+        width: auto;
+        display: block;
+        object-fit: cover;
+    }
+
+    /* Ajuste adicional para que el contenedor de la foto no 
+       le quite espacio al borde en pantallas muy pequeñas */
+    .usuario-main {
+        padding-left: 0;
+        background: none;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+}
+

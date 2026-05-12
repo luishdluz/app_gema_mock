@@ -1,0 +1,114 @@
+/* ===================================================
+   GEMA - MÓDULO DE METADATOS (metadatos.css)
+   =================================================== */
+
+/* Ajustes específicos para el contenedor de Metadatos */
+#vista-metadatos .table-container-modern {
+    margin-top: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+/* Estilos de las etiquetas de TIPO (Texto Libre / Opciones) */
+.type-tag {
+    font-size: 10px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    display: inline-block;
+    letter-spacing: 0.5px;
+}
+
+.type-texto {
+    background: #e0f2fe; /* Azul claro */
+    color: #0369a1;
+}
+
+.type-select {
+    background: #fef3c7; /* Ámbar/Amarillo claro */
+    color: #92400e;
+}
+
+/* Estilos para los BADGES de valores permitidos (dentro de la tabla) */
+.badge-valor {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    border: 1px solid #e2e8f0;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+/* Badge removible (usado dentro de la Modal de edición/alta) */
+.badge-valor.removable {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.badge-valor.removable:hover {
+    background: #fee2e2; /* Rojo suave */
+    color: #c21832;
+    border-color: #fecaca;
+}
+
+/* Ajustes para los inputs específicos de Metadatos */
+.gema-input, 
+.gema-form-modern textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    background: #f8fafc;
+    color: #1e293b;
+    transition: all 0.2s ease;
+}
+
+.gema-input:focus {
+    outline: none;
+    border-color: #007279;
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(0, 114, 121, 0.1);
+}
+
+/* Sección de valores fijos dentro de la modal */
+#section-valores-fijos {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #e2e8f0;
+}
+
+#section-valores-fijos label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #64748b;
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* Mensaje de "Sin resultados" en la búsqueda de metadatos */
+.no-results-metadata td {
+    background-color: #fcfdfe;
+    border-bottom: none !important;
+}
+
+/* Responsividad para la tabla de metadatos */
+@media (max-width: 768px) {
+    .type-tag {
+        font-size: 9px;
+        padding: 2px 5px;
+    }
+    
+    .badge-valor {
+        font-size: 0.7rem;
+    }
+}
